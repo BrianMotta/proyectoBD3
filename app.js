@@ -5,24 +5,18 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
 var app = express();
 
 require('./models/model_producto');
-require('./models/model_vendedor');
-require('./models/model_comprador');
+require('./models/model_venta');
 require('./models/model_usuario');
 require('./models/model_mecenazgo');
 
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb+srv://Juan:1234@cluster0.aw6la.mongodb.net/bd3?retryWrites=true&w=majority');
-//var prueba = require('./routes/cliente_producto');
-var vendedor = require('./routes/routeVendedor');
-var comprador = require('./routes/routeComprador');
+var venta = require('./routes/routeVenta');
 var usuario = require('./routes/routeUsuario');
 var mecenazgo = require('./routes/routeMecenazgo'); 
 var producto = require('./routes/routeProducto');
+var conexion= require('./routes/routeConexion');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,14 +28,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/vendedores', vendedor);
-app.use('/compradores', comprador);
+app.use('/ventas', venta);
 app.use('/users', usersRouter);
 app.use('/productos', producto);
 app.use('/usuarios', usuario);
 app.use('/mecenazgo', mecenazgo);
-
-
+app.use('/conexion', conexion);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,5 +52,10 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+module.exports =app;
+
+
+
+
+
 
