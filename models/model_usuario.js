@@ -9,4 +9,4 @@ var usuarioSchema = new Schema({
     telefono : {type: String, Required:  'Product name cannot be left blank.'},
 }, {versionKey: false});
 
-module.exports = mongoose.model('Usuario', usuarioSchema, 'usuario')
+module.exports = mongoose.model('Usuario', usuarioSchema, 'Usuario')

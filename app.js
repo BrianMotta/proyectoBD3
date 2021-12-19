@@ -16,13 +16,13 @@ require('./models/model_mecenazgo');
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://dbUser:dbUserPassword@cluster0.5tpue.mongodb.net/proyecto?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://Juan:1234@cluster0.aw6la.mongodb.net/bd3?retryWrites=true&w=majority');
 //var prueba = require('./routes/cliente_producto');
 var vendedor = require('./routes/routeVendedor');
 var comprador = require('./routes/routeComprador');
 var usuario = require('./routes/routeUsuario');
 var mecenazgo = require('./routes/routeMecenazgo'); 
-var producto = requiere('./routes/routeProducto');
+var producto = require('./routes/routeProducto');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
